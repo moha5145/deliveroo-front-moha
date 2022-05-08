@@ -32,27 +32,29 @@ const Basket = ({ basket, setBasket }) => {
       <div className="basket-detail ">
         {basket.map((bask, index) => {
           return (
-            <div key={bask.id}>
-              <div>
-                <i
-                  className="fa-solid fa-circle-minus"
-                  onClick={() => {
-                    decrimentQuantity(index);
-                  }}
-                ></i>
-                <span>{bask.quantity}</span>
-                <i
-                  className="fa-solid fa-circle-plus"
-                  onClick={() => {
-                    incrimentQuantity(index);
-                  }}
-                ></i>
-                <span> {bask.title}</span>
+            bask.quantity > 0 && (
+              <div key={bask.id}>
+                <div>
+                  <i
+                    className="fa-solid fa-circle-minus"
+                    onClick={() => {
+                      decrimentQuantity(index);
+                    }}
+                  ></i>
+                  <span>{bask.quantity}</span>
+                  <i
+                    className="fa-solid fa-circle-plus"
+                    onClick={() => {
+                      incrimentQuantity(index);
+                    }}
+                  ></i>
+                  <span> {bask.title}</span>
+                </div>
+                <div>
+                  <span>{bask.price * bask.quantity}</span>
+                </div>
               </div>
-              <div>
-                <span>{bask.price * bask.quantity}</span>
-              </div>
-            </div>
+            )
           );
         })}
       </div>
