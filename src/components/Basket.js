@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const Basket = ({ basket, setBasket }) => {
   const decrimentQuantity = (index) => {
     const newBasket = [...basket];
@@ -14,16 +12,19 @@ const Basket = ({ basket, setBasket }) => {
     newBasket[index].quantity++;
     setBasket(newBasket);
   };
-  const [total, setTotal] = useState([]);
 
-  // const totalHandler = () => {
-  //     let valeurInitiale = 0;
-  //     let somme = basket.reduce((accumulateur, valeurCourante) => {
-  //         accumulateur + valeurCourante.quantity
-  //     }, valeurInitiale)
+  const totalHandler = () => {
+    let some = 0;
+    basket.forEach((item) => {
+      some = some + item.quantity * item.price;
+    });
+    // let somme = basket.reduce((accumulateur, valeurCourante) => {
+    //     accumulateur + valeurCourante.quantity
+    // }, valeurInitiale)
 
-  //     setTotal(somme)
-  // }
+    return some;
+  };
+
   return (
     <div className="basket">
       <button>Valider mon panier</button>
@@ -57,13 +58,16 @@ const Basket = ({ basket, setBasket }) => {
       </div>
       <div className="basket-info sub-total">
         <span>Sub Total</span>
-        <span></span>
-
+        <span>{totalHandler().toFixed(2)}</span>
+      </div>
+      <div className="basket-info sub-total">
         <span>Frais de livraison</span>
+        <span>{0}</span>
       </div>
 
       <div className="basket-info total">
         <span>Total</span>
+        <span>{totalHandler().toFixed(2) + 0}</span>
       </div>
     </div>
   );
