@@ -48,11 +48,16 @@ h4 {
     span {
       color: #00cdbd;
       font-size: small;
+      display: none;
     }
     i {
+      display: none;
       color: #00cdbd;
       font-size: 24px;
-      display: none;
+      cursor: pointer;
+    }
+    i:hover {
+      opacity: 0.7;
     }
   }
 }
@@ -153,6 +158,10 @@ h4 {
       padding: 5px;
       font-size: 24px;
       display: none;
+      cursor: pointer;
+    }
+    .basket-icon:hover {
+      opacity: 0.7;
     }
     .large-row {
       flex: 9;
@@ -181,6 +190,7 @@ h4 {
           .incriment-decriment-container {
             i {
               color: #00cdbd;
+              cursor: pointer;
             }
             i:hover {
               opacity: 0.7;
@@ -275,6 +285,9 @@ h4 {
       justify-content: space-between;
       place-items: center;
       padding: 0 20px;
+      span {
+        display: inline;
+      }
       i {
         display: inherit;
       }
