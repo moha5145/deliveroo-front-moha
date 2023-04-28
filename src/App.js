@@ -14,7 +14,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("https://deliveroo-back-moha.herokuapp.com/");
+      const response = await axios.get("https://deliveroo-back-clone.onrender.com/");
 
       setData(response.data);
 
